@@ -1,0 +1,16 @@
+.search{
+	float:right;  
+	padding-right:10px;
+}
+.search a {
+	background:url('../images/search.png') 0 no-repeat; 
+	color: #000;
+	display: block;
+	height: 40px;
+	line-height: 38px;
+	padding-left: 30px; 
+	font-size: 14px;
+} 
+.header img {
+	height:40px;
+}

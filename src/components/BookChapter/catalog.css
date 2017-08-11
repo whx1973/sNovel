@@ -1,0 +1,20 @@
+.book-directory .catalist {
+    position: relative;
+    padding-top: 12px;
+}
+.book-directory .catalist  li {
+    list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.book-directory ul>li.grade_01 { 
+    font-size:16px;
+    color:#979999;
+    line-height: 2em;
+}
+.book-directory ul>li.grade_02 {
+    text-indent: 2em;
+    font-size:14px;
+    color:#979999;
+    line-height: 1.8em;
+}

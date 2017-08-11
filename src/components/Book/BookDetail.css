@@ -1,0 +1,199 @@
+.flex_box{  
+	display: -webkit-flex;
+	display:flex; 
+	flex-direction:row;
+	justify-content:space-around; 
+	flex-wrap:wrap;  
+} 
+.main div{
+	padding:15px;
+	width:100%;
+}
+.main img {float:left;width:64px;margin-right:10px;margin-top:5px;}
+.main  h3 { 
+	font-size: 16px;
+    line-height: 18px;
+	height: 18px;
+	overflow: hidden;
+	word-break: break-all;
+	font-weight: normal;
+	color: #1d2c33;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-bottom: 2px;
+	margin-top:2px;
+}
+.main p{
+	color: #aaa;
+	line-height: 16px;
+	height: 16px;
+	overflow: hidden;
+	font-size: 12px;
+}
+.main .abstract{
+	padding-top: 4px;
+	height: 32px;
+	line-height: 16px;
+	color: #aaa;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.btns{
+	padding-top: 15px;
+    position: relative;
+}
+.btn {
+	width:50%;
+	float:left;
+	 
+	display: block;
+}
+.book-recent {
+    position: relative;
+    padding: 20px 15px 20px 45px;
+    background-color: #ebe8e6;
+    border-top: 1px solid #E8E7E6;
+}
+.book-recent .time{
+	color: #ABA499;
+    margin-top: 5px;
+    font-size:10px;
+}
+.book-recent .title{
+	font-size: 14px;
+    color: #3A98C9;
+}
+.book-recent i{
+    position: absolute;
+    top: 27px;
+    left: 15px;
+    display: block;
+    width: 25px;
+    height: 15px;
+    background: url(../../images/icon-recent.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    text-indent: -9999px;
+}
+.book-detail{
+	background: #faf7f5;
+    padding: 15px 15px 20px;
+    border-top: 1px solid #E8E7E6;
+}
+.book-title{
+	color: #1D2C33;
+    font-size: 16px;
+    font-weight: bold;
+}
+.book-title span {
+    color: #ABA49A;
+    font-size: 12px;
+    font-weight: normal;
+}
+.book-title .sort {
+    position: relative;
+    margin-top: 2px;
+    color: #3A98C9;
+    font-size: 14px;
+    float: right;
+    padding-right: 13px;
+    font-weight: normal;
+}
+
+.book-title .sort  i{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 9px;
+    height: 10px;
+    display: block;
+    background: url(../../images/arrow-up.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+.book-title .sort .reverse i{ 
+    background-image: url(../../images/arrow-up-reverse.png);
+}
+.book-detail .content {
+	text-indent: 2em;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-top: 12px;  
+    font-size: 14px;
+    color: #979999;
+    line-height: 20px;
+}
+.book-detail .showmore{
+	position: relative;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #3998C9;
+    padding-right: 11px;
+    text-align: right;
+}
+.book-detail .showmore i{
+	position: absolute;
+    top: 7px;
+    right: 0;
+    width: 9px;
+    height: 6px;
+    background: url(../../images/arrow-down.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.book-directory{
+	background: #faf7f5;
+    padding: 15px 15px 20px;
+    border-top: 1px solid #E8E7E6;
+    border-bottom: 1px solid #E8E7E6;
+}
+.book-directory .catalist {
+    position: relative;
+    padding-top: 12px;
+}
+.book-directory .catalist  li {
+    list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.book-directory ul>li.grade_01 { 
+    font-size:14px;
+    color:#979999;
+    line-height: 1.5em;
+}
+.book-directory ul>li.grade_02 {
+    text-indent: 2em;
+    font-size:14px;
+    color:#979999;
+    line-height: 1.5em;
+}
+
+.book-directory .more {
+    display: block;
+    margin-top: 14px;
+    height: 29px;
+    line-height: 27px;
+    background-color: #faf7f5;
+    color: #998D7F;
+    text-align: center;
+    border: 1px solid #E4E0DD;
+    border-radius: 3px; 
+}
+
+.book-directory .more span {
+    vertical-align: middle;
+    font-size:12px;
+}
+.book-directory .more i {
+    width: 6px;
+    height: 9px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 3px;
+    background: url(../../images/arrow-right.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+}
