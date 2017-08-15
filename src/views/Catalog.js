@@ -29,8 +29,7 @@ export class CatalogComponent extends Component {
     nextPage(state,props){
         return {pageId:state.pageId + 1};
     }
-    getPrevPage(){
-        console.log(this.state.pageId)
+    getPrevPage(){ 
         const bookId = this.props.params.bid; 
         const count = this.props.chapterList&&this.props.chapterList.count; 
         const pageSize = 100;
@@ -41,8 +40,7 @@ export class CatalogComponent extends Component {
             this.setState(this.prevPage)
         }
     }
-    getNextPage(){ 
-        console.log(this.state.pageId)
+    getNextPage(){  
         const bookId = this.props.params.bid; 
         const count = this.props.chapterList&&this.props.chapterList.count; 
         const pageSize = 100;
@@ -59,15 +57,13 @@ export class CatalogComponent extends Component {
             )
         } else {
             return null;
-        }
-
+        } 
     }
 }
 
 
 const mapStateToProps = (state) => {
-    const { chapterList } = state;
-    
+    const { chapterList } = state; 
     return {
         chapterList
     }

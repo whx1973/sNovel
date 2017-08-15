@@ -10,6 +10,9 @@ module.exports  = {
 		path:path.resolve(__dirname,'./dist/'),
 		filename:'bundle.js'
 	},
+	performance: {
+  		hints: false
+	},
 	module: {
 		loaders:[
 			{
@@ -17,7 +20,7 @@ module.exports  = {
 				exclude:/node_modules/,
 				loader:'babel-loader',
 				query:{
-					presets: ['es2015','react','stage-0']
+					presets: ['es2015','react','stage-0','stage-1']
 				},
 				exclude: /node_modules/
 			},
@@ -47,7 +50,9 @@ module.exports  = {
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 	        compress: {
-	          warnings: false
+	          warnings: false,
+	          //drop_debugger: true,
+              //drop_console: true
 	        },
 	        output: {
 	        	comments: false

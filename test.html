@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+</head>
+<body>
+	<div id="test" style="border:1px solid #ccc; height:500px; width:300px;background:red;">dfafe</div>
+	<script type="text/javascript" src="../src/utils/myScroll.js"></script>
+	<script type="text/javascript"> 
+		var dom = document.querySelector("#test");
+
+		var test = function(msg){
+			console.log(msg);
+		}
+		var handler = function(e){
+			console.log(arguments)
+			console.log(arguments[1]);
+			return test(arguments[0]);
+		}
+		dom.addEventListener('click',handler.bind(this,'afef'),false)
+		var start = function(){
+			alert('正在加载中...');
+		}
+		var load = function(){
+			alert('加载数据成功')
+		}
+		var end = function(){
+			alert('关闭加载进度条')
+		}
+		var error = function(){
+			alert('加载失败')
+
+		}
+		
+			var myScroll = new myScroll('#test',{
+				start:start,
+				load:load,
+				end:end,
+				error:error
+			}); 
+
+		 
+		 
+		//alert('a')
+		//console.log(myScroll)
+		// window.addEventListener('touchstart', function(e){
+		// 	document.querySelector('#test').innerHTML+='touchstart';
+		// }, true);
+		// window.addEventListener('touchend', function(e){
+		// 	document.querySelector('#test').innerHTML+='touchend';
+		// }, false);
+		// window.addEventListener('click', function(e){
+		// 	document.querySelector('#test').innerHTML+='click';
+		// }, false);
+	</script>
+</body>
+</html>
