@@ -67,7 +67,7 @@ export class CatalogComponent extends Component {
 
 const mapStateToProps = (state) => {
     const { chapterList } = state;
-    console.log(state);
+    
     return {
         chapterList
     }
