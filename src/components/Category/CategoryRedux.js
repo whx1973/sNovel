@@ -26,11 +26,11 @@ export const getCategoryList = () => dispatch => {
 	return dispatch(fetchCategoryList());
 }
 
-const categoryList = (state={categoryList:{}}, action) => {
+const categoryList = (state={}, action) => {
 	switch (action.type) {
 		case REQUEST_CATEGORY_LIST:
 			return {...state,
-				categoryList:{
+				...{
 					isFetching: true,
         			didInvalidate: false,
         			loaded:false
@@ -38,7 +38,7 @@ const categoryList = (state={categoryList:{}}, action) => {
 			}
 		case RECEIVE_CATEGORY_LIST: 
 			return {...state,
-				categoryList:{
+				...{
 					data:action.categoryList,
 					isFetching: false,
         			didInvalidate: false,

@@ -23,13 +23,12 @@ export const getBookDetail = (bookId) => dispatch => {
 }
 
 
-const bookDetail = (state = {bookDetailData:{}},action) => {  
-	switch (action.type) {
-
+const bookDetail = (state = {},action) => {  
+	switch (action.type) { 
 		case RECEIVE_BOOK_DETAIL:  
 			return {
 				...state,
-				bookDetailData:{
+				...{
 					isFetching: false,
         			didInvalidate: false,
         			loaded:true,
@@ -39,7 +38,7 @@ const bookDetail = (state = {bookDetailData:{}},action) => {
 		case REQUEST_BOOK_DETAIL: 
 			return {
 				...state,
-				bookDetailData:{
+				...{
 					isFetching: true,
         			didInvalidate: false,
         			loaded:false

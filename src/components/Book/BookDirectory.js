@@ -28,9 +28,9 @@ export default class BookDirectory extends Component {
 		this.props.getChapterList(this.props.bookId, pageId, pageSize, this.state.sort); 
 	}
     renderList() { 
-    	const {chapterListData} = this.props.chapterList; 
-    	if(chapterListData&&chapterListData.data) {  
-    		const list = chapterListData.data;
+    	 
+    	if(this.props.chapterList&&this.props.chapterList.data) {  
+    		const list = this.props.chapterList.data;
 			return list.map((item,key)=>{
 				if(item.chaptertype===1){
 					return (<li className="grade_01" key={key}>{item.chaptername}</li>)
@@ -45,7 +45,6 @@ export default class BookDirectory extends Component {
     }
 	render(){
 		const className = this.state.sort===0?'sort':'sort reverse';
-		const {chapterListData} = this.props.chapterList;
 		 
 		return (
 			<section className="book-directory">

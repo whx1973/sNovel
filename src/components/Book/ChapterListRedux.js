@@ -25,12 +25,12 @@ export const getChapterList = (bookId, pageId, pageSize, order) => dispatch => {
 	return dispatch(fetchChapterList(bookId, pageId, pageSize, order));
 }
 
-const chapterList = (state = {chapterListData:{}}, action) => {
+const chapterList = (state = { }, action) => {
 	switch (action.type) {
 		case REQUEST_CHAPTER_LIST:
 			return {
 				...state,
-				chapterListData:{ 
+				...{ 
 					isFetching: true,
         			didInvalidate: false,
         			loaded:false
@@ -39,7 +39,7 @@ const chapterList = (state = {chapterListData:{}}, action) => {
 		case RECEIVE_CHAPTER_LIST:  
 			return {
 				...state,
-				chapterListData:{ 
+				...{ 
 					isFetching: false,
         			didInvalidate: false,
         			loaded:true,

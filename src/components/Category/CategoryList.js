@@ -50,9 +50,9 @@ export default class Category extends Component {
 		this.props.getCategoryList(); 
 	}
 	render(){ 
-		const { loaded } = this.props.categoryList.categoryList;
+		const { loaded } = this.props.categoryList;
 		if(loaded){
-			const {data} = this.props.categoryList.categoryList; 
+			const {data} = this.props.categoryList; 
 			return (
 				<div>
 					<Menu />
