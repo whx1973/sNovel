@@ -54,12 +54,12 @@ export class BooKDetailComponent extends Component {
 
  
 const mapStateToProps = (state) => {  
-	const { bookDetail, chapterList } = state;  
+	const { bookDetail, chapterList } = state;   
 	return { 
-		didInvalidate:bookDetail.bookDetailData.didInvalidate,
- 		isFetching:bookDetail.bookDetailData.isFetching,
- 		loaded:bookDetail.bookDetailData.loaded,
- 		bookDetail:bookDetail.bookDetailData.data,
+		didInvalidate:bookDetail.didInvalidate,
+ 		isFetching:bookDetail.isFetching,
+ 		loaded:bookDetail.loaded,
+ 		bookDetail:bookDetail.data,
  		chapterList
 	}
 }     

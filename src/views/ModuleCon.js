@@ -7,7 +7,7 @@ import Menu from '../layouts/Menu';
 import * as actions  from './HomeRedux'
  
 const mapStateToProps = (state,ownProps) => {  
-	const { bookModule } = state  
+	const { bookModule } = state   
 	return { 
 		moduleName: ownProps.moduleName,
 		moduleNameCode: ownProps.moduleNameCode,

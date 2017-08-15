@@ -3,30 +3,62 @@ import { connect } from 'react-redux';
 import * as chapterActions from './ChapterListRedux';
 import CatalogList from '../Components/BookChapter/CatalogList';
 
+import GetData from './GetData';
+
 export class CatalogComponent extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {pageId:1}
+        this.getPrevPage = this.getPrevPage.bind(this);  
+        this.getNextPage = this.getNextPage.bind(this);
+        this.prevPage = this.prevPage.bind(this);
+        this.nextPage = this.nextPage.bind(this);
     }
     componentDidMount() {
-        const bookId = this.props.params.bid;
-        const pageId = 1;
+        const bookId = this.props.params.bid; 
         const pageSize = 100;
         const sort = 0;
-        this.props.getChapterList(bookId, pageId, pageSize, sort);
+        this.props.getChapterList(bookId, this.state.pageId, pageSize, sort);
+        this.setState(this.nextPage)
     }
-
+    //同步更新键为pageId的state
+    prevPage(state,props){
+        return {pageId:state.pageId - 1};
+    }
+     //同步更新键为pageId的state
+    nextPage(state,props){
+        return {pageId:state.pageId + 1};
+    }
+    getPrevPage(){
+        console.log(this.state.pageId)
+        const bookId = this.props.params.bid; 
+        const count = this.props.chapterList&&this.props.chapterList.count; 
+        const pageSize = 100;
+        const sort = 0; 
+        if(this.state.pageId!=1 ){
+           
+            this.props.getChapterList(bookId, this.state.pageId, pageSize, sort);
+            this.setState(this.prevPage)
+        }
+    }
+    getNextPage(){ 
+        console.log(this.state.pageId)
+        const bookId = this.props.params.bid; 
+        const count = this.props.chapterList&&this.props.chapterList.count; 
+        const pageSize = 100;
+        const sort = 0;  
+        if(Math.ceil(count / pageSize) > this.state.pageId ){
+            this.props.getChapterList(bookId, this.state.pageId, pageSize, sort);
+            this.setState(this.nextPage)
+        } 
+    }
     render() {
-        const { loaded } = this.props.chapterList.chapterListData;
+        const { loaded } = this.props.chapterList;
         if (loaded) {
-            return ( <
-                CatalogList bookId = { this.props.params.bid } { ...this.props.chapterList.chapterListData }
-                />
+            return ( <CatalogList bookId = { this.props.params.bid } { ...this.props.chapterList }  />
             )
         } else {
-            return ( <
-                div > loading < /div>
-            );
+            return null;
         }
 
     }
@@ -35,6 +67,7 @@ export class CatalogComponent extends Component {
 
 const mapStateToProps = (state) => {
     const { chapterList } = state;
+    console.log(state);
     return {
         chapterList
     }
@@ -47,6 +80,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
 })
 
-const Catalog = connect(mapStateToProps, mapDispatchToProps)(CatalogComponent)
+const Catalog = connect(mapStateToProps, mapDispatchToProps)(GetData(CatalogComponent,'chapterList'))
 
 export default Catalog;
