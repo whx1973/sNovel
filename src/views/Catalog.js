@@ -50,6 +50,9 @@ export class CatalogComponent extends Component {
             this.setState(this.nextPage)
         } 
     }
+    componentDidUpdate(){ 
+        this.props.registerEvent();
+    }
     render() {
         const { loaded } = this.props.chapterList;
         if (loaded) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Router, Route, hashHistory, browserHistory, IndexRoute } from 'react-router';
+import {Router, Route, hashHistory, browserHistory, IndexRoute, applyRouterMiddleware } from 'react-router'; 
+import { useScroll } from 'react-router-scroll';
 import Frame from '../Layouts/Frame'; 
 import Home from '../views/Home';
 import BookDetail from '../views/BookDetail'
@@ -9,13 +10,30 @@ import List from '../views/List';
 import Category from '../views/Category';
 import NotFound from '../views/NotFound';
 
+useScroll((prevRouterProps, { location }) => (
+  prevRouterProps && location.pathname !== prevRouterProps.location.pathname
+));
+
+useScroll((prevRouterProps, { routes }) => {
+  alert(routes);
+  if (routes.some(route => route.ignoreScrollBehavior)) {
+    return false;
+  }
+
+  if (routes.some(route => route.scrollToTop)) {
+    return [0, 0];
+  }
+
+  return true;
+});
+
 const routes = (history) => ( 
-	<Router history = { history }>
+	<Router history = { history } render={applyRouterMiddleware(useScroll())}>
   		<Route path='/' component= {Frame} >
   			<IndexRoute component={Home} />
         <Route path='chapter/:bid/:cid' component = {ChapterDetail} />
   			<Route path='book/:id' component={BookDetail} />
-        <Route path='list/:cid' component = {List} />
+        <Route path='list/:cid/:pageId' component = {List} />
         <Route path='catalog/:bid' component = {Catalog} /> 
   			<Route path='category' component= {Category}/>
         <Route path="*" component={NotFound} />

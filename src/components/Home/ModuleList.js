@@ -1,6 +1,6 @@
 import React from 'react';  
 import { Link } from 'react-router';
-import ModuleItem from './ModuleItem';
+import BookItem from '../BookItem';
 require('./module.css');
 
 export default class Module extends React.Component {
@@ -29,7 +29,7 @@ export default class Module extends React.Component {
 					<ol className="book-ol book-ol-normal">
 
 						 {data.map((ele,index)=>{
-						 	return <ModuleItem key={index} item = {ele}/>
+						 	return <BookItem key={index} item = {ele}/>
 						 })}
 					</ol>
 				</div>

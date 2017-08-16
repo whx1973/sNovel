@@ -4,10 +4,8 @@ import { Link } from 'react-router'
 require('./category.css') 
 import Menu from '../../Layouts/Menu';
 
-class ChildCategory extends Component {
-	render(){
-		return (<Link className="btn-line-gray" to={`/list/${this.props.cid}`}>{this.props.name}</Link>);
-	}
+const ChildCategory = (props) => { 
+	return (<Link className="btn-line-gray" to={`/list/${props.cid}/1`}>{props.name}</Link>); 
 }
 
 class PCategory extends Component {
@@ -24,7 +22,7 @@ class PCategory extends Component {
 	render (){ 
 		return (
 			<li className="sort-li">
-				<Link className="sort-li-header" to={`/list/${this.props.cid}`}>
+				<Link className="sort-li-header" to={`/list/${this.props.cid}/1`}>
 					<h3 className="module-title">
 						{this.props.name}
 						{/*<span className="sort-li-data">共<output>584400</output>本作品</span>*/}
@@ -70,7 +68,7 @@ export default class Category extends Component {
 	    		</div>
 			)
 		}else{
-			return <div>loading</div>
+			return null
 		}
 		
 	}

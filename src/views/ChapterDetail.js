@@ -36,16 +36,14 @@ export class ChapterDetailComponent extends Component {
 	componentDidMount() {   
 		this.props.getChapterDetail(this.props.params.bid,this.props.params.cid); 
 	} 
-	shouldComponentUpdate(nextProps, nextState) { 
-		return true;
-	}
 	componentDidUpdate(){
 		const { cid } = this.props.params;
 		if(this.props.chapterDetail.loaded){
 			if(cid != this.props.chapterDetail.data.currentChapterId){
 				this.props.getChapterDetail(this.props.params.bid,this.props.params.cid);
 			} 
-		} 
+		}  
+		this.props.registerEvent();
 	}
 	 
 	render() {  

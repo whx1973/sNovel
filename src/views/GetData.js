@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 GetData.defaultProps  = {
-	monitorEvent:[ 'click', 'touchstart', 'touchend','mousewheel', 'scroll'],
-	top:0,
-	left:0,
-	right:0,
-	bottom:0,
+	monitorEvent:[ 'click', 'touchstart', 'touchend','mousewheel', 'scroll']
 
 }
 export default function GetData(WrappedComponent,dataSourceKey) {
@@ -17,14 +13,25 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 			this.getScrollTop = this.getScrollTop.bind(this)
 			this.getClientHeight = this.getClientHeight.bind(this)
 			this.getScrollHeight = this.getScrollHeight.bind(this); 
-			this.clear = this.clear.bind(this); 
+			this.clearEvent = this.clearEvent.bind(this); 
+			this.registerEvent = this.registerEvent.bind(this);
+			this.state = {};
 		} 
+		registerEvent () { 
+			let eventList = GetData.defaultProps.monitorEvent;   
+			for(let i = 0; i < eventList.length; i++){
+				window.addEventListener(eventList[i], this.state.eventFun, false);
+			}    
+		}
+		//绑定监听事件(touchstart touchend)
 		componentDidMount() {   
 			let eventList = GetData.defaultProps.monitorEvent;  
 			var fn = this.getDataLoad(this.wappedComponent);
+			this.setState({eventFun: fn});
 			for(let i = 0; i < eventList.length; i++){
 				window.addEventListener(eventList[i], fn, false);
 			} 
+			this.registerEvent(fn);
 			this.props.router.setRouteLeaveHook(
 		        this.props.route, 
 		        this.routerLeave.bind(this)(fn), 
@@ -32,8 +39,8 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		} 
 		routerLeave(fn) {  
 			var self = this; 
-			return function(){  
-	    		self.clear(fn); 
+			return function(){   
+	    		self.clearEvent(fn); 
 			} 
 	    }
 		//获取滚动条当前的位置 
@@ -58,6 +65,7 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		    } 
 		    return clientHeight; 
 		} 
+		//获取文档完整的高度
 		getScrollHeight() {  
 		    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight); 
 		} 
@@ -72,21 +80,21 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		}  
 		 
 		getDataLoad(WrappedComponent){
-			var self = this;   
-			console.log(WrappedComponent.getNextPage); 
+			var self = this;    
 			return function(){  
 				var result = self.testMeet();  
 				if (result=='top'&&WrappedComponent.getPrevPage) { 
+					console.log('a')
 					//WrappedComponent.getPrevPage();
 				}else if(result == 'bottom'&&WrappedComponent.getNextPage){  
 					WrappedComponent.getNextPage();
 				} 
-				self.clear();
+				self.clearEvent();
 				 
 			}
 			
 		}  
-		clear(fn){
+		clearEvent(fn){
 			let eventList = GetData.defaultProps.monitorEvent; 
 			for(let i = 0; i < eventList.length; i++){ 
 				window.removeEventListener(eventList[i], fn, false);
@@ -95,14 +103,12 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		 
 		render () { 
 
-			const newProps =Object.assign({},this.props );
-			 
+			const newProps =Object.assign({},this.props); 
 			const {loaded, isFetching, didInvalidate} = this.props[dataSourceKey];   
 			return (   
-				<div id='container' ref = {(control) =>{this.container = control;}}>
-					<div className={"data-load-"+!loaded}> 
-					</div>
-					<WrappedComponent ref = {(c) => {this.wappedComponent = c;}}  {...newProps}  />
+				<div id='container' ref = {(control) =>{this.container = control;}}> 
+					<WrappedComponent ref = {(c) => {this.wappedComponent = c;}}  {...newProps} registerEvent = {this.registerEvent}  />
+					<div className={"data-load-"+!loaded}></div>
 				</div>
 			);
 		}
