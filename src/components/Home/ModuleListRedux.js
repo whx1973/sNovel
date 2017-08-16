@@ -1,4 +1,4 @@
-import serverUrl from '../../utils/Config';
+import { serverUrl, port } from '../../utils/Config';
 
 export const REQUEST_BOOK_MODULE = 'REQUEST_BOOK_MODULE';
 export const RECEIVE_BOOK_MODULE = 'RECEIVE_BOOK_MODULE';
@@ -18,7 +18,7 @@ export const receiveBookModule = (moduleName,json) => ({
 const fetchModuleBooks = (moduleName,count) => dispatch => { 
 	//console.log(moduleName)
 	dispatch(requestBookModule(moduleName,count))
-	return fetch(`http://${serverUrl}:4000/moduleName/${moduleName}/${count}`)
+	return fetch(`http://${serverUrl}:${port}/moduleName/${moduleName}/${count}`)
 		.then(response => response.json())
 		.then(json => dispatch(receiveBookModule(moduleName,json)))
 }

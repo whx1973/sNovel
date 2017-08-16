@@ -1,4 +1,4 @@
-import serverUrl from '../../utils/Config';
+import { serverUrl, port } from '../../utils/Config';
 export const REQUEST_CATEGORY_LIST = 'REQUEST_CATEGORYLIST';
 export const RECEIVE_CATEGORY_LIST = 'RECEIVE_CATEGORYLIST'; 
 
@@ -13,7 +13,7 @@ export const receiveCategoryList = (json) =>({
 
 const fetchCategoryList = () => dispatch => {
 	dispatch(requestCategoryList());
-	return fetch(`http://${serverUrl}:4000/categorylist`)
+	return fetch(`http://${serverUrl}:${port}/categorylist`)
 		.then(response => response.json())
 		.then(json => {   
 			dispatch(receiveCategoryList(json))

@@ -1,5 +1,5 @@
 
-import serverUrl from '../../utils/Config';
+import { serverUrl, port } from '../../utils/Config';
 export const REQUEST_CHAPTER_LIST = 'REQUEST_CHAPTER_LIST';
 export const RECEIVE_CHAPTER_LIST = 'RECEIVE_CHAPTER_LIST'; 
 
@@ -17,7 +17,7 @@ export const receiveChapterList = (json) =>({
 
 const fetchChapterList = (bookId,pageId = 1, pageSize = 10, order = 0) =>dispatch => { 
 	dispatch(requestChapterList(bookId,pageId, pageSize, order));
-	return fetch(`http://${serverUrl}:4000/chapterlist/${bookId}/${pageId}/${pageSize}/${order}`)
+	return fetch(`http://${serverUrl}:${port}/chapterlist/${bookId}/${pageId}/${pageSize}/${order}`)
 		.then(response => response.json())
 		.then(json => dispatch(receiveChapterList(json)));
 };

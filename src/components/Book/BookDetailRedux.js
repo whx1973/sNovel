@@ -1,4 +1,4 @@
-import serverUrl from '../../utils/Config';
+import { serverUrl, port } from '../../utils/Config';
 export const REQUEST_BOOK_DETAIL = 'REQUEST_BOOK_DETAIL';
 export const RECEIVE_BOOK_DETAIL = 'RECEIVE_BOOK_DETAIL';
 
@@ -14,7 +14,7 @@ export const receiveBookDetail = (json) => ({
  
 const fetchBookDetail = (bookId) => dispatch => {   
 	dispatch(requestBookDetail(bookId));  
-	return fetch(`http://${serverUrl}:4000/book/${bookId}`)
+	return fetch(`http://${serverUrl}:${port}/book/${bookId}`)
 		.then(response => response.json())
 		.then(json => dispatch(receiveBookDetail(json)));
 }

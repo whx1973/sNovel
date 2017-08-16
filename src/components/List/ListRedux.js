@@ -1,4 +1,4 @@
-import serverUrl from '../../utils/Config'; 
+import { serverUrl, port } from '../../utils/Config'; 
 export const REQUEST_LIST = 'REQUEST_LIST';
 export const RECEIVE_LIST = 'RECEIVE_LIST'; 
 export const RECRIVE_LIST_FAILED = 'RECRIVE_LIST_FAILED'; 
@@ -21,7 +21,7 @@ export const receiveListFailed = () =>({
 
 const fetchList = (cid, pageIndex, pageSize) => dispatch => {
 	dispatch(requestList(cid));
-	return fetch(`http://${serverUrl}:4000/sort/${cid}/${pageIndex}/${pageSize}`)
+	return fetch(`http://${serverUrl}:${port}/sort/${cid}/${pageIndex}/${pageSize}`)
 		.then(response => response.json())
 		.then(json => {
 			dispatch(receiveList(json))
