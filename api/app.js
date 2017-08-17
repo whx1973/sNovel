@@ -39,15 +39,7 @@ app.get('/chapter/:bookid/:chapterid',chapter.detail);
 //章节分页
 app.get('/chapterlist/:bookid/:pageid/:pagesize/:order',chapter.list);
 
-//全部章节
-app.get('/chapterlist/:bookid/:order',chapter.allList);
-
-
-//prev 章节
-app.get('/chapterprev/:bookid/:chapterid',chapter.prev);
-
-//next 章节
-app.get('/chapternext/:bookid/:chapterid',chapter.next);
+ 
 
 //app.get('/sort',novel.sort);
 
@@ -58,6 +50,7 @@ app.get('/moduleName/:moduleName/:count',novel.bookModule)
 
 app.get('/categoryList',novel.categoryList)
 
+ 
 http.createServer(app).listen(app.get('port'),function() {
 	console.log('Express server listening on port' + app.get('port'));
 })
