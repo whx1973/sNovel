@@ -53,6 +53,9 @@ exports.detail = function(req, res) {
         },
         getPrevChapter: function(callback) {
             query(`SELECT MAX(chapterid) as prevChapter from jieqi_article_chapter WHERE articleid = ${articleid} AND chapterid < ${chapterid} AND chaptertype =0 `, callback);
+        },
+        getBookName: function(callback){
+            query(`SELECT articlename  from jieqi_article_article  WHERE articleid = ${articleid}`,callback)
         }
     }
     async.series(tasks, function(err, results) {
@@ -64,6 +67,7 @@ exports.detail = function(req, res) {
             var obj = {};
             obj.nextChapter = results['getNextChapter'][0].nextChapter;
             obj.prevChapter = results['getPrevChapter'][0].prevChapter;
+            obj.bookName = results['getBookName'][0].articlename;
             obj.bookId = articleid;
             obj.currentChapterId = chapterid;
             obj.chaptername = results['getChapterDetail'][0].chaptername;
