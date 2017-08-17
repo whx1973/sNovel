@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as chapterActions from './ChapterListRedux';
 import CatalogList from '../Components/BookChapter/CatalogList';
 
-import GetData from './GetData';
+import GetData from '../components/GetData';
 
 export class CatalogComponent extends Component {
     constructor(props) {

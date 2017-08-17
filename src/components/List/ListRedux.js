@@ -54,7 +54,8 @@ const List = (state = {}, action) => {
         			//data:myArray.concat(action.list)
         			data: action.list.data,
         			pageId: action.list.pageid,
-        			pageSize: action.list.pagesize
+        			pageSize: action.list.pagesize,
+        			categoryName:action.list.categoryName
 				}
 			}
 		case RECRIVE_LIST_FAILED: 

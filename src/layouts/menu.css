@@ -1,0 +1,20 @@
+.bar {
+	composes: flex_box from './base.css';
+    background-color: #ccc;
+    padding: 15px 0;
+    width: 100%;
+}
+.item {
+	composes: flex_box from './base.css';
+    width: 20%;
+    height: 16px;
+    margin: 4px 0px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 16px;
+}
+.item_a { 
+    text-decoration: none;
+    color: inherit;
+    outline: 0; 
+}

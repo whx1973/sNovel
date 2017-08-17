@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './BookDetail.css';
 
 export default class BookDetailInfo extends Component {
 	constructor(props) {
@@ -15,16 +16,16 @@ export default class BookDetailInfo extends Component {
 	getDetailInfo(){
 		if(this.state.showmore){
 			return (
-				<div className="content" style={{display:'block'}} dangerouslySetInnerHTML={{__html: this.props.intro}}> 
+				<div className={styles.book_detail_content} style={{display:'block'}} dangerouslySetInnerHTML={{__html: this.props.intro}}> 
 				</div>
 			);
 		}else{
 			return (
 				<div>
-					<div className="content" dangerouslySetInnerHTML={{__html: this.props.intro}}> 
+					<div className={styles.book_detail_content} dangerouslySetInnerHTML={{__html: this.props.intro}}> 
 					</div>
-					<p className="showmore" onClick={this.handlerShowMore} >
-						展开<i></i>
+					<p className={styles.book_detail_showmore} onClick={this.handlerShowMore} >
+						展开<i className={styles.book_detail_showmore_i}></i>
 					</p>
 				</div>
 			);
@@ -32,8 +33,8 @@ export default class BookDetailInfo extends Component {
 	}
 	render() { 
 		return (
-			<section className="book-detail">
-				<h4 className="book-title">内容简介</h4>
+			<section className={styles.book_detail}>
+				<h4 className={styles.book_title}>内容简介</h4>
 				{this.getDetailInfo()}
 			</section>
 		);

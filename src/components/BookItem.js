@@ -1,23 +1,24 @@
 import React from 'react';  
 import { Link } from 'react-router';
 import getSortName from '../utils/SortName';
+import styles from './bookItem.css'
 
 const BookItem = (props) => {
 		const {articlename, author, imgUrl, intro, articleid, sortid, fullflag} = props.item
 		return ( 
-				<li className="book-li">
-					<Link to={"/book/"+articleid} className="book-layout"> 
-						<img src={"../"+imgUrl} className="book-cover" alt={articlename} />
-						<div className="book-cell">
-							<h4 className="book-title">{articlename}</h4>
-							<p className="book-desc">{intro}</p>
-							<div className="book-meta">
-								<div className="book-meta-l">
-									<span className="book-author" role="option">
+				<li className={styles.book_li}>
+					<Link to={"/book/"+articleid} className={styles.book_layout}> 
+						<img src={"../"+imgUrl} className={styles.book_cover} alt={articlename} />
+						<div className={styles.book_cell}>
+							<h4 className={styles.book_title}>{articlename}</h4>
+							<p className={styles.book_desc}>{intro}</p>
+							<div className={styles.book_meta}>
+								<div className={styles.book_meta_l}>
+									<span className={styles.book_author}>
 										<aria>作者：</aria>{author}
 									</span>
 								</div>
-								<div className="book-meta-r">
+								<div className={styles.book_meta_r}>
 									<span>
 										<em>{getSortName(sortid)}</em>
 										{' '}

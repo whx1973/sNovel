@@ -25,7 +25,7 @@ export const getBookDetail = (bookId) => dispatch => {
 
 const bookDetail = (state = {},action) => {  
 	switch (action.type) { 
-		case RECEIVE_BOOK_DETAIL:  
+		case RECEIVE_BOOK_DETAIL: 
 			return {
 				...state,
 				...{

@@ -1,10 +1,11 @@
 import React from 'react';  
 import { Link } from 'react-router'; 
 
-import BookItem from '../BookItem'
-require('./list.css');
+import BookItem from '../BookItem';
 
-export default class Module extends React.Component {
+import SubHeader from '../../layouts/SubHeader'; 
+
+export default class ListComponent extends React.Component {
     constructor(props) {
        super(props);   
     }  

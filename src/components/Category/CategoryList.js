@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router' 
 
-require('./category.css') 
+//require('./category.css') 
 import Menu from '../../Layouts/Menu';
 
+import styles from './category.css';
+
 const ChildCategory = (props) => { 
-	return (<Link className="btn-line-gray" to={`/list/${props.cid}/1`}>{props.name}</Link>); 
+	return (<Link className={styles.btn_line_gray} to={`/list/${props.cid}/1`}>{props.name}</Link>); 
 }
 
 class PCategory extends Component {
@@ -21,15 +23,15 @@ class PCategory extends Component {
 	}
 	render (){ 
 		return (
-			<li className="sort-li">
-				<Link className="sort-li-header" to={`/list/${this.props.cid}/1`}>
-					<h3 className="module-title">
+			<li>
+				<Link className={styles.sort_li_header} to={`/list/${this.props.cid}/1`}>
+					<h3 className={styles.module_title}>
 						{this.props.name}
-						{/*<span className="sort-li-data">共<output>584400</output>本作品</span>*/}
-						<i></i>
+						{/*<span className={styles.sort_li_data}>共<output>584400</output>本作品</span>*/}
+						<i className = {styles.sort_li_header_i}></i>
 					 </h3>
 				</Link>
-				<div className="sort-li-detail">
+				<div className={styles.sort_li_detail}>
 					{
 						this.renderChild() 
 					}
@@ -50,12 +52,12 @@ export default class Category extends Component {
 	render(){ 
 		const { loaded } = this.props.categoryList;
 		if(loaded){
-			const {data} = this.props.categoryList; 
+			const {data} = this.props.categoryList;  
 			return (
 				<div>
 					<Menu />
-				 	<div className="module module-merge">
-				 		<ul className="sort-ul">
+				 	<div className={styles.module_merge}>
+				 		<ul className={styles.sort_ul}>
 				 			{
 				 				data.filter((item)=>{
 				 					return item.pid==0

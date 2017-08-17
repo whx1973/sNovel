@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import styles from '../layouts/base.css'
+import React, { Component } from 'react'; 
+require('../styles/loading.css')
 
 GetData.defaultProps  = {
 	monitorEvent:[ 'click', 'touchstart', 'touchend','mousewheel', 'scroll']
@@ -102,14 +102,14 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 			} 
 		}
 		 
-		render () {  
+		render () { 
+
 			const newProps =Object.assign({},this.props); 
 			const {loaded, isFetching, didInvalidate} = this.props[dataSourceKey];   
 			return (   
 				<div id='container' ref = {(control) =>{this.container = control;}}> 
-					<div className={"data_load_"+!loaded}></div> 
 					<WrappedComponent ref = {(c) => {this.wappedComponent = c;}}  {...newProps} registerEvent = {this.registerEvent}  />
-					
+					<div className={"data_load_"+!loaded}></div>  
 				</div>
 			);
 		}

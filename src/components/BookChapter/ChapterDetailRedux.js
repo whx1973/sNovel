@@ -44,6 +44,7 @@ const chapterDetail = (state={}, action) => {
 				}
 			}
 		case RECEIVE_CHAPTER_DETAIL: 
+			console.log(action)
 			return {...state,
 				...{
 					data:action.chapterDetail,

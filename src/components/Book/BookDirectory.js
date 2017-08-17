@@ -1,5 +1,6 @@
 import React, { Component, propTypes } from 'react';
 import { Link } from 'react-router';
+import styles from './BookDetail.css';
 
 export default class BookDirectory extends Component {
 	static defaultProps = {
@@ -33,9 +34,9 @@ export default class BookDirectory extends Component {
     		const list = this.props.chapterList.data;
 			return list.map((item,key)=>{
 				if(item.chaptertype===1){
-					return (<li className="grade_01" key={key}>{item.chaptername}</li>)
+					return (<li className={styles.book_directory_grade_01} key={key}>{item.chaptername}</li>)
 				}else{
-					return (<li className="grade_02" key={key}><Link to={`/chapter/${this.props.bookId}/${item.chapterid}`}>{item.chaptername}</Link></li>)
+					return (<li className={styles.book_directory_grade_02} key={key}><Link className = {styles.link} to={`/chapter/${this.props.bookId}/${item.chapterid}`}>{item.chaptername}</Link></li>)
 				}
 			})
 		} else {
@@ -43,22 +44,22 @@ export default class BookDirectory extends Component {
 		} 
 		//console.log(list) 
     }
-	render(){
-		const className = this.state.sort===0?'sort':'sort reverse';
-		 
+	render(){ 
 		return (
-			<section className="book-directory">
-				<h4 className="book-title">
-					目录<span>(共{this.props.chapters}章)</span>
-					<a className={className} onClick = {this.handlerClick} >{this.state.sortName}<i></i></a>
+			<section className={styles.book_directory}>
+				<h4 className={styles.book_title}>
+					目录<span className={styles.book_title_span}>(共{this.props.chapters}章)</span>
+					<a className={styles.book_title_sort} onClick = {this.handlerClick} >{this.state.sortName}
+						<i className={this.state.sort===1?styles.book_title_sort_i:styles.book_title_sort_reverse_i}></i>
+					</a>
 				</h4>
-				<div className="catalist">
+				<div className={styles.book_directory_catalist}>
 					<ul> 
 						{this.renderList()}
 					 </ul>
-					 <Link to={`/catalog/${this.props.bookId}`} className="more">
-					 	<span>更多目录</span>
-					 	<i></i>
+					 <Link to={`/catalog/${this.props.bookId}`} className= {styles.book_directory_more}>
+					 	<span className = {styles.book_directory_more_span}>更多目录</span>
+					 	<i className = {styles.book_directory_more_i}></i>
 					 </Link>
 				</div>
 			</section>

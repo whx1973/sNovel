@@ -1,8 +1,9 @@
+/*Header*/
 .search{
 	float:right;  
 	padding-right:10px;
 }
-.search a {
+.search_a {
 	background:url('../images/search.png') 0 no-repeat; 
 	color: #000;
 	display: block;
@@ -11,6 +12,6 @@
 	padding-left: 30px; 
 	font-size: 14px;
 } 
-.header img {
+.header_img {
 	height:40px;
 }

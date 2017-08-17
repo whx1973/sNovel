@@ -1,7 +1,33 @@
-.book-directory .catalist {
+.book_directory {
     position: relative;
     padding-top: 12px;
+} 
+.catalist {
+    position: relative;
+    padding-top: 12px;
+} 
+.catalist_li {
+    list-style: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
+.grade_01 { 
+    composes:catalist_li;
+    font-size:16px;
+    color:#979999;
+    line-height: 2em;
+}
+.grade_02 {
+     composes:catalist_li;
+    text-indent: 2em;
+    font-size:14px;
+    color:#979999;
+    line-height: 1.8em;
+}
+.link {
+    composes:a_reset from '../../layouts/base.css';
+}
+/*
 .book-directory .catalist  li {
     list-style: none;
     display: list-item;
@@ -17,4 +43,4 @@
     font-size:14px;
     color:#979999;
     line-height: 1.8em;
-}
+}*/

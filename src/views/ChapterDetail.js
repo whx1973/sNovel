@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { hashHistory } from 'react-router';
-
+import { hashHistory, Link } from 'react-router'; 
 import * as actions  from './ChapterDetailRedux';
-import * as chapterDetailActions from './ChapterDetailRedux';
-
-import ChapterArticle from '../components/BookChapter/ChapterArticle';
-
-import GetData from './GetData';
+import * as chapterDetailActions from './ChapterDetailRedux'; 
+import ChapterArticle from '../components/BookChapter/ChapterArticle'; 
+import GetData from '../components/GetData';  
+import SubHeader from '../layouts/SubHeader';
+import styles from '../layouts/base.css' 
 
 export class ChapterDetailComponent extends Component { 
 	constructor(props) {
@@ -47,10 +46,16 @@ export class ChapterDetailComponent extends Component {
 	}
 	 
 	render() {  
-		const {isFetching, loaded } = this.props.chapterDetail;
-		const detail = this.props.chapterDetail; 
+		const { isFetching, loaded } = this.props.chapterDetail; 
 		if(loaded){
-			return (<ChapterArticle {...this.props.chapterDetail.data} />) 
+			return (
+				<div>
+					<SubHeader title ={this.props.chapterDetail.data.bookName}>
+						<Link className={styles.a_reset} to={"/"}>首页</Link>
+					</SubHeader>
+					<ChapterArticle {...this.props.chapterDetail.data} />
+				</div>
+			) 
 		}else{
 			return null
 		}  

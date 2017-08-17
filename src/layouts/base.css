@@ -1,0 +1,13 @@
+.flex_box {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.a_reset {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+}

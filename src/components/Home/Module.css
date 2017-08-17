@@ -2,37 +2,37 @@
     margin: .75rem 0;
     background-color: #fff;
 }
-.module-header {
+.module_header {
     height: 1.75rem;
     padding: 0 1rem;
     border-top: 1rem solid transparent;
 }
-.module-header::after {
+.module_header::after {
     display: table;
     clear: both;
     content: '';
 }
-.module-header-l {
+.module_header_l {
     float: left;
 }
-.module-title {
+.module_title {
     font-family: FZZCYSK;
     font-weight: 400;
     display: inline;
     color: #33373d;
 }
-.module-header-r {
+.module_header_r {
     position: relative;
     float: right;
     min-width: 4rem;
 }
 
-.module-title-desc {
+.module_title_desc {
     font-size: .8125rem;
     margin-left: .5rem;
     color: #969ba3;
 }
-.module-header-btn {
+.module_header_btn {
     font-size: .875rem;
     line-height: 1.5rem;
     position: absolute;
@@ -42,73 +42,16 @@
     white-space: nowrap;
     color: #969ba3;
 }
-a {
+.book_ol_normal{
+/*    line-height: 1.1875rem;
+    display: -webkit-box;
+    height: 2.25rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;*/
+}
+/*a {
     text-decoration: none;
     color: inherit;
     outline: 0;
 }
-.book-layout {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    padding: 1rem;
-    -webkit-transition: padding-left .15s;
-    transition: padding-left .15s;
-}
-.book-cover {
-    font-size: 0;
-    float: left;
-    width: 4.125rem;
-    height: 5.5rem;
-    margin-right: .5rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,.3);
-}
-.book-cell {
-    overflow: hidden;
-}
-.book-title {
-    line-height: 1.4;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.book-ol-normal .book-desc, .book-ol-time .book-desc {
-    line-height: 1.1875rem;
-    display: -webkit-box;
-    height: 2.25rem;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-.book-desc {
-    font-size: .875rem;
-    line-height: 1.125rem;
-    overflow: hidden;
-    margin: .375rem 0;
-    color: #969ba3;
-}
-.book-meta {
-    font-size: .75rem;
-    overflow: hidden;
-}
-.book-meta-l {
-    float: left;
-}
-
-.book-meta-r {
-    position: relative;
-    float: right;
-}
-.book-author {
-    font-size: .8125rem;
-    display: block;
-    overflow: hidden; 
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #969ba3;
-}
-.book-meta-r .tag-small-group {
-    position: absolute;
-    top: .375rem;
-    right: 0;
-    white-space: nowrap;
-} 
+*/

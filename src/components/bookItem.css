@@ -1,0 +1,83 @@
+.book_li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.book_layout {
+    composes:a_reset from '../layouts/base.css';
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 1rem;
+    -webkit-transition: padding-left .15s;
+    transition: padding-left .15s;
+}
+
+.book_cover {
+    font-size: 0;
+    float: left;
+    width: 4.125rem;
+    height: 5.5rem;
+    margin-right: .5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+.book_cell {
+    overflow: hidden;
+}
+
+.book_title {
+    line-height: 1.4;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.book_desc_0 {
+    line-height: 1.1875rem;
+    display: -webkit-box;
+    height: 2.25rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.book_desc { 
+    composes:book_desc_0;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    overflow: hidden;
+    margin: .375rem 0;
+    color: #969ba3;
+}
+
+.book_meta {
+    font-size: .75rem;
+    overflow: hidden;
+}
+
+.book_meta_l {
+    float: left;
+}
+
+.book_meta_r {
+    position: relative;
+    float: right;
+}
+
+.book_author {
+    font-size: .8125rem;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #969ba3;
+}
+
+.book-meta-r .tag-small-group {
+    position: absolute;
+    top: .375rem;
+    right: 0;
+    white-space: nowrap;
+}

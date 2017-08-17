@@ -1,4 +1,27 @@
-.mode_dark {
+.article {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+}
+
+.article_title {
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 1em 0;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.article_content {
+    text-indent: 2em;
+    font-size: 1em;
+    line-height: 1.5em;
+    word-break: break-all;
+    margin: .1em 0;
+    padding: 0 10px;
+}
+/*.mode_dark {
     background: #2A2A2A;
     color: #ccc;
 }
@@ -244,4 +267,4 @@ aside li {
     100% {
         transform: rotate(360deg)
     }
-}
+}*/

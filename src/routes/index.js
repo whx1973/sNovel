@@ -10,6 +10,8 @@ import List from '../views/List';
 import Category from '../views/Category';
 import NotFound from '../views/NotFound';
 
+import Test from '../views/Test';
+
 useScroll((prevRouterProps, { location }) => (
   prevRouterProps && location.pathname !== prevRouterProps.location.pathname
 ));
@@ -29,15 +31,19 @@ useScroll((prevRouterProps, { routes }) => {
 
 const routes = (history) => ( 
 	<Router history = { history } render={applyRouterMiddleware(useScroll())}>
+      <Route path = '/test' component = { Test } />
+      <Route path='/list/:cid/:pageId' component = {List} />
+      <Route path='/chapter/:bid/:cid' component = {ChapterDetail} />
   		<Route path='/' component= {Frame} >
   			<IndexRoute component={Home} />
-        <Route path='chapter/:bid/:cid' component = {ChapterDetail} />
+        
   			<Route path='book/:id' component={BookDetail} />
-        <Route path='list/:cid/:pageId' component = {List} />
+        
         <Route path='catalog/:bid' component = {Catalog} /> 
   			<Route path='category' component= {Category}/>
         <Route path="*" component={NotFound} />
   		</Route>
+
   	</Router>
 );
 export default routes;

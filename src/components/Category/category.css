@@ -1,65 +1,34 @@
-
-a {
-    text-decoration: none;
-    color: inherit;
-    outline: 0;
-}
-ol, ul {
-    padding: 0;
-    list-style: none;
-}
-ul {
-    margin: 0;
-}
-.module-merge {
-    margin: 0;
-}
 .module {
     margin: .75rem 0;
     background-color: #fff;
 }
-.sort-li-header, .sort-li-title {
+
+.module_merge {
+    composes: module;
+    margin: 0;
+}
+
+.module_title {
+    font-family: FZZCYSK;
+    font-weight: 400;
+    display: inline;
+    color: #33373d;
+}
+
+.sort_ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.sort_li_header {
+    composes: a_reset from '../../layouts/base.css';
     line-height: 40px;
     position: relative;
     display: block;
     padding: 0 1rem;
 }
-.module-title {
-    font-family: FZZCYSK;
-    font-weight: 400;
-    display: inline;
-    color: #33373d;
-}                                                                                                                                                                                                           
-.sort-li-data {
-    font-family: 'pingfang sc';
-    font-size: .8125rem;
-    margin-left: .5rem;
-    color: #969ba3;
-}
-.sort-li-detail {
-    font-size: .75rem;
-    line-height: 0;
-    padding: 0 1rem 1rem;
-    text-align: justify;  
-} 
-.sort-li-detail .btn-line-gray {
-    margin-top: .75rem; 
-} 
-.btn-line-gray, .btn-line-gray~i:empty, .btn-tag {
-    color: #969ba3;
-}
- 
-.btn-line, .btn-line-gray, .btn-line-gray~i:empty, .btn-tag {
-    font-size: .8125rem;
-    line-height: 1.6875rem;
-    display: inline-block;
-    padding: 0 .625rem;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 99px; 
-
-} 
-.sort-li-header i{
+.sort_li_header_i {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -70,3 +39,83 @@ ul {
     background-size: 100% 100%;
     text-indent: -9999px;
 }
+
+.sort_li_data {
+    font-family: 'pingfang sc';
+    font-size: .8125rem;
+    margin-left: .5rem;
+    color: #969ba3;
+}
+
+.sort_li_detail {
+    font-size: .75rem;
+    line-height: 0;
+    padding: 0 1rem 1rem;
+    text-align: justify;
+    margin-top: .75rem;
+}
+
+.btn_line_gray {
+    composes: a_reset from '../../layouts/base.css';
+    margin-top: .75rem;
+    color: #969ba3;
+    font-size: .8125rem;
+    line-height: 1.6875rem;
+    display: inline-block;
+    padding: 0 .625rem;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 99px;
+}
+
+
+/*.sort-li-header,
+.sort-li-title {
+    line-height: 40px;
+    position: relative;
+    display: block;
+    padding: 0 1rem;
+}
+
+
+.sort-li-detail {
+    font-size: .75rem;
+    line-height: 0;
+    padding: 0 1rem 1rem;
+    text-align: justify;
+}
+
+.sort-li-detail .btn-line-gray {
+    margin-top: .75rem;
+}
+
+.btn-line-gray,
+.btn-line-gray~i:empty,
+.btn-tag {
+    color: #969ba3;
+}
+
+.btn-line,
+.btn-line-gray,
+.btn-line-gray~i:empty,
+.btn-tag {
+    font-size: .8125rem;
+    line-height: 1.6875rem;
+    display: inline-block;
+    padding: 0 .625rem;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 99px;
+}
+
+.sort-li-header i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: block;
+    width: 8px;
+    height: 12px;
+    background: url(../../images/arrow-right.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    text-indent: -9999px;
+}*/

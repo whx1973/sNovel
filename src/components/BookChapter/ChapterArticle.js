@@ -1,13 +1,13 @@
 import React , { Component } from 'react'; 
 import { hashHistory } from 'react-router';
-
-require('./chapterDetail.css');
+import styles from './chapterDetail.css'
+//require('./chapterDetail.css');
 
 const ChapterArticle = (props) => {
 	return (
-		<article id="article">
-			<h1>{props.chaptername}</h1>
-			<div dangerouslySetInnerHTML={{__html: props.detail}}>
+		<article id="article" className ={styles.article}>
+			<h1  className ={styles.article_title}>{props.chaptername}</h1>
+			<div  className ={styles.article_content} dangerouslySetInnerHTML={{__html: props.detail}}>
 			</div>
 		</article>
 	);

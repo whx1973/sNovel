@@ -1,12 +1,12 @@
-import React from 'react'
-import searchImg  from '../images/logo.gif.png'
-require('./search.css')
+import React from 'react';
+import searchImg  from '../images/logo.gif.png';
+import styles from './header.css';
 const Header = () => (
-	<header className="header">
+	<header className={styles.header}>
 		<section>
-			<img src={searchImg} alt=""  />
-			<div className = {'search'}>
-				<a>搜索</a>
+			<img className = {styles.header_img} src={searchImg} alt=""  />
+			<div className = {styles.search}>
+				<a className = {styles.search_a}>搜索</a>
 			</div>
 		</section>
 	</header> 

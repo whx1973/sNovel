@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ModuleList from '../components/Home/ModuleList';
-import Menu from '../layouts/Menu'; 
-//import actions from './HomeRedux';
-
+import Menu from '../layouts/Menu';   
 import * as actions  from './HomeRedux'
  
 const mapStateToProps = (state,ownProps) => {  

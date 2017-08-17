@@ -36,5 +36,4 @@ ReactDOM.render((
 	</Provider>
   ),document.getElementById('root'));
 
-
-//store.subscribe(render)
+ 
