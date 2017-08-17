@@ -28,11 +28,19 @@ module.exports  = {
 				test:/\.(png|jpg|gif)$/,
 				loader:'file-loader',
 				exclude: /node_modules/
+			}, 
+			{
+			    test: /\.css$/,
+			    loaders: [
+			        'style-loader?sourceMap',
+			        'css-loader?modules&importLoaders=1&localIdentName=[name]-[local]-[hash:base64:5]'
+			    ],
+			    exclude:path.resolve(__dirname,'src/styles')
 			},
 			{
 				test:/\.css$/,
 				loader:'style-loader!css-loader',
-				exclude: /node_modules/
+				include:path.resolve(__dirname,'src/styles')
 			}
 		]
 	},
@@ -51,8 +59,8 @@ module.exports  = {
 		new webpack.optimize.UglifyJsPlugin({
 	        compress: {
 	          warnings: false,
-	          //drop_debugger: true,
-              //drop_console: true
+	          drop_debugger: true,
+              drop_console: true
 	        },
 	        output: {
 	        	comments: false
