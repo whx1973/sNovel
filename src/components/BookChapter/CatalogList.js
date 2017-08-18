@@ -1,11 +1,11 @@
 import React, { Component, propTypes } from 'react';
 import { Link } from 'react-router';
-import styles from './catalog.css'
-//require('./catalog.css')
+import styles from './catalog.css';
 
 const CatalogList = (props) => {
 	const { data, bookId, count } = props;
-	const list = data
+	const list = data;
+	console.log(props)
 	return (
 		<section className={styles.book_directory}>
 			<div className={styles.catalist} >

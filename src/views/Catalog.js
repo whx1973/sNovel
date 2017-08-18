@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link,hashHistory } from 'react-router';
 import * as chapterActions from './ChapterListRedux';
-import CatalogList from '../Components/BookChapter/CatalogList';
-
+import CatalogList from '../Components/BookChapter/CatalogList'; 
 import GetData from '../components/GetData';
+import SubHeader from '../layouts/SubHeader';
+import Footer from '../layouts/Footer';
+import styles from '../layouts/base.css';
 
 export class CatalogComponent extends Component {
     constructor(props) {
@@ -13,6 +16,11 @@ export class CatalogComponent extends Component {
         this.getNextPage = this.getNextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
         this.nextPage = this.nextPage.bind(this);
+        this.onBack = this.onBack.bind(this);
+    }
+    onBack(){
+        const bookId = this.props.params.bid;
+        hashHistory.push(`/book/${bookId}`);
     }
     componentDidMount() {
         const bookId = this.props.params.bid; 
@@ -56,8 +64,15 @@ export class CatalogComponent extends Component {
     render() {
         const { loaded } = this.props.chapterList;
         if (loaded) {
-            return ( <CatalogList bookId = { this.props.params.bid } { ...this.props.chapterList }  />
-            )
+            return (
+                <div>
+                    <SubHeader title ='目录' onBack = {this.onBack}> 
+                        <Link className={styles.a_reset} to={"/"}>首页</Link>
+                    </SubHeader>
+                    <CatalogList bookId = { this.props.params.bid } { ...this.props.chapterList }  />
+                    <Footer />
+                </div> 
+           )
         } else {
             return null;
         } 
