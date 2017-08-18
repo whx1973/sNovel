@@ -27,3 +27,5 @@
 ![alt](/shot/5.png)
 ![alt](/shot/6.png)
 ![alt](/shot/7.png)
+## 备注
+> sql data 为数据库文件  库名 snovel
