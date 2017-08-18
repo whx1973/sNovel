@@ -4,15 +4,25 @@ import { hashHistory, Link } from 'react-router';
 import * as actions  from './ChapterDetailRedux';
 import * as chapterDetailActions from './ChapterDetailRedux'; 
 import ChapterArticle from '../components/BookChapter/ChapterArticle'; 
-import GetData from '../components/GetData';  
-import SubHeader from '../layouts/SubHeader';
-import styles from '../layouts/base.css' 
+import GetData from '../components/GetData'; 
+import ChapterHeader from '../components/BookChapter/ChapterHeader';
+import ChapterFooter from '../components/BookChapter/ChapterFooter';
 
 export class ChapterDetailComponent extends Component { 
 	constructor(props) {
 	  super(props);
 	  this.getPrevPage = this.getPrevPage.bind(this);  
 	  this.getNextPage = this.getNextPage.bind(this);
+	  this.onBack = this.onBack.bind(this);
+	  this.state = {optShow:false} //顶部操作区域与底部区域默认不显示
+	  this.handlerToggle = this.handlerToggle.bind(this);
+	}
+	handlerToggle(){
+		this.setState({optShow:!this.state.optShow});
+	}
+	onBack(event){ 
+		window.history.back();
+		//event.stopPropagation();
 	}
 	getPrevPage(){ 
 		const bookId = this.props.params.bid; 
@@ -46,14 +56,15 @@ export class ChapterDetailComponent extends Component {
 	}
 	 
 	render() {  
-		const { isFetching, loaded } = this.props.chapterDetail; 
+		const { isFetching, loaded } = this.props.chapterDetail;  
 		if(loaded){
 			return (
 				<div>
-					<SubHeader title ={this.props.chapterDetail.data.bookName}>
-						<Link className={styles.a_reset} to={"/"}>首页</Link>
-					</SubHeader>
-					<ChapterArticle {...this.props.chapterDetail.data} />
+					<ChapterHeader optShow={this.state.optShow} bookId={this.props.chapterDetail.data.bookId} title ={this.props.chapterDetail.data.bookName} onBack = {this.onBack} />
+					<div onClick = {this.handlerToggle}>
+						<ChapterArticle {...this.props.chapterDetail.data} />
+					</div>
+					<ChapterFooter optShow={this.state.optShow}/>
 				</div>
 			) 
 		}else{

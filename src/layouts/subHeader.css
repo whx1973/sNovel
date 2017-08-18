@@ -2,7 +2,7 @@
 
 .subheader {
     composes: flex_box from './base.css';
-    background: #80bd01;
+    background: #ed6460;
     height: 30px;
     padding: 5px 10px;
     color: #fff;

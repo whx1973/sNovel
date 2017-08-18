@@ -34,13 +34,12 @@ const routes = (history) => (
       <Route path = '/test' component = { Test } />
       <Route path='/list/:cid/:pageId' component = {List} />
       <Route path='/chapter/:bid/:cid' component = {ChapterDetail} />
+      <Route path='/book/:id' component={BookDetail} />
+      <Route path='/category' component= {Category}/> 
   		<Route path='/' component= {Frame} >
-  			<IndexRoute component={Home} />
-        
-  			<Route path='book/:id' component={BookDetail} />
-        
+  			<IndexRoute component={Home} /> 
         <Route path='catalog/:bid' component = {Catalog} /> 
-  			<Route path='category' component= {Category}/>
+  			
         <Route path="*" component={NotFound} />
   		</Route>
 

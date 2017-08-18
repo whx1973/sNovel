@@ -1,0 +1,71 @@
+.bottomfixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+ 
+
+.flex_box_column {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.setting_box {
+    composes: flex_box_column;
+    background: #ed6460;
+    padding: 10px; 
+}
+
+.readSetSkin {
+    composes: flex_box from '../../layouts/base.css';
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.readSetSkin_item {
+    composes: flex_box from '../../layouts/base.css';
+    width: 22%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.velours {
+    composes: readSetSkin_item;
+    background: #FFD39B;
+}
+
+.eye {
+    composes: readSetSkin_item;
+    background: #B4EEB4;
+}
+
+.normal {
+    composes: readSetSkin_item;
+    background: white;
+}
+
+.soft {
+    composes: readSetSkin_item;
+    background: #ccc;
+}
+
+.footer {
+    composes: flex_box from '../../layouts/base.css';
+    background: #ed6460;
+    height: 30px;
+    padding: 0px 10px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 30px;  
+}
+
+.footer_item {
+    composes: flex_box from '../../layouts/base.css';
+    width: 20%;
+    color: #fff;
+}

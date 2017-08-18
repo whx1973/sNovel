@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router' 
-
-//require('./category.css') 
-import Menu from '../../Layouts/Menu';
-
+import { Link } from 'react-router'  
+import Menu from '../../Layouts/Menu'; 
 import styles from './category.css';
+import SubHeader from '../../layouts/SubHeader';
+import Footer from '../../layouts/Footer';    
 
 const ChildCategory = (props) => { 
 	return (<Link className={styles.btn_line_gray} to={`/list/${props.cid}/1`}>{props.name}</Link>); 
@@ -44,7 +43,10 @@ class PCategory extends Component {
 export default class Category extends Component {
 	constructor(props) {
 		super(props);
-		
+		this.onBack = this.onBack.bind(this);
+	}
+	onBack(){
+		window.history.back();
 	}
 	componentDidMount() {
 		this.props.getCategoryList(); 
@@ -55,6 +57,9 @@ export default class Category extends Component {
 			const {data} = this.props.categoryList;  
 			return (
 				<div>
+					<SubHeader title ='分类' onBack = {this.onBack}>
+						<Link className={styles.link} to={"/"}>首页</Link>
+					</SubHeader>
 					<Menu />
 				 	<div className={styles.module_merge}>
 				 		<ul className={styles.sort_ul}>
@@ -67,6 +72,7 @@ export default class Category extends Component {
 				 			}
 				 		</ul>
 				 	</div>
+				 	<Footer />
 	    		</div>
 			)
 		}else{

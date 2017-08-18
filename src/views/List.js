@@ -9,7 +9,9 @@ import styles from '../layouts/base.css'
 class ListCon extends Component {
 	constructor(props) {
 		super(props); 
+		this.getPrevPage = this.getPrevPage.bind(this);
 		this.getNextPage = this.getNextPage.bind(this); 
+		this.onBack = this.onBack.bind(this);
 	}
 	componentDidMount() {   
 		let { cid, pageId} = this.props.params;  
@@ -17,8 +19,20 @@ class ListCon extends Component {
 		pageId = pageId || 1;
 		this.props.getList(cid, pageId, pageSize); 
 	}
+	onBack(){
+		hashHistory.push('/category')
+	}
  	 
-	 
+	getPrevPage(){
+		let { cid, pageId} = this.props.params;  
+		const pageSize = 10; 
+		if(+pageId > 1) {
+			pageId = pageId - 1;
+			this.props.getList(cid, pageId, pageSize);
+	        hashHistory.push(`/list/${cid}/${pageId}`);
+		}
+		
+	} 
     getNextPage(){  
 		let { cid, pageId} = this.props.params;  
 		const pageSize = 10; 
@@ -46,7 +60,7 @@ class ListCon extends Component {
 		if(loaded){
 			return (
 				<div>
-					<SubHeader title = {this.props.list.categoryName}>
+					<SubHeader title = {this.props.list.categoryName} onBack = {this.onBack}>
 						<Link className={styles.a_reset} to={"/"}>首页</Link>
 					</SubHeader>
 					<ListComponent ref={(control) => {this.listDom = control;}} data={this.props.list.data}/>
@@ -58,8 +72,7 @@ class ListCon extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {  
-	console.log(state)   
+const mapStateToProps = (state) => {     
 	const { list } = state;  
 	return { 
 		list	 

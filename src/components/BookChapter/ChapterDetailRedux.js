@@ -43,8 +43,7 @@ const chapterDetail = (state={}, action) => {
         			loaded:false
 				}
 			}
-		case RECEIVE_CHAPTER_DETAIL: 
-			console.log(action)
+		case RECEIVE_CHAPTER_DETAIL:  
 			return {...state,
 				...{
 					data:action.chapterDetail,

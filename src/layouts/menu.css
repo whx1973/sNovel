@@ -1,7 +1,7 @@
 .bar {
 	composes: flex_box from './base.css';
     background-color: #ccc;
-    padding: 15px 0;
+    padding: 5px 0;
     width: 100%;
 }
 .item {

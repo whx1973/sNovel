@@ -66,56 +66,7 @@
     text-align: center;
     border: 1px solid;
     border-radius: 99px;
+} 
+.link {
+    composes:a_reset from '../../layouts/base.css';
 }
-
-
-/*.sort-li-header,
-.sort-li-title {
-    line-height: 40px;
-    position: relative;
-    display: block;
-    padding: 0 1rem;
-}
-
-
-.sort-li-detail {
-    font-size: .75rem;
-    line-height: 0;
-    padding: 0 1rem 1rem;
-    text-align: justify;
-}
-
-.sort-li-detail .btn-line-gray {
-    margin-top: .75rem;
-}
-
-.btn-line-gray,
-.btn-line-gray~i:empty,
-.btn-tag {
-    color: #969ba3;
-}
-
-.btn-line,
-.btn-line-gray,
-.btn-line-gray~i:empty,
-.btn-tag {
-    font-size: .8125rem;
-    line-height: 1.6875rem;
-    display: inline-block;
-    padding: 0 .625rem;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 99px;
-}
-
-.sort-li-header i {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: block;
-    width: 8px;
-    height: 12px;
-    background: url(../../images/arrow-right.png) 0 0 no-repeat;
-    background-size: 100% 100%;
-    text-indent: -9999px;
-}*/

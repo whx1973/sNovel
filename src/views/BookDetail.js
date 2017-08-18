@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; 
+import { hashHistory,Link } from 'react-router'; 
 import * as actions  from './BookRedux';
 import * as chapterActions from './ChapterListRedux';
 import BookInfo from '../components/Book/BookInfo';
 import BookRecent from '../components/Book/BookRecent';
 import BookDetailInfo from '../components/Book/BookDetailInfo';
-import BookDirectory from '../components/Book/BookDirectory';
+import BookDirectory from '../components/Book/BookDirectory'; 
+import SubHeader from '../layouts/SubHeader';
+import Footer from '../layouts/Footer';
+import styles from '../layouts/base.css' 
 
 export class BooKDetailComponent extends Component { 
 	constructor(props) {
 	  super(props);  
-	  
+	  this.onBack = this.onBack.bind(this);
 	}
 	componentDidMount() { 
 		this.props.getData();  
+	}
+	onBack(){
+		window.history.back();
 	}
 	 
 	render() { 
@@ -34,10 +41,14 @@ export class BooKDetailComponent extends Component {
 			}
 			return (
 				<div>
+					<SubHeader title ='书籍详情' onBack = {this.onBack}> 
+						<Link className={styles.a_reset} to={"/"}>首页</Link>
+					</SubHeader>
 					<BookInfo {...this.props.bookDetail} bookId = {bookId}/>
 					{bookRecent}
 					<BookDetailInfo {...this.props.bookDetail} bookId = {bookId}/>
 					<BookDirectory {...this.props.bookDetail}  bookId = {bookId} getChapterList = {this.props.getChapterList} chapterList = {chapterList}  />
+					<Footer />
 				</div>
 			);
 		}else{

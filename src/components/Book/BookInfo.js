@@ -17,11 +17,11 @@ export default class BookInfo extends Component {
 						<p className = {styles.main_p}>{fullflag==0?'连载中':'已完结'}</p>
 					</div>
 					<div className={styles.btns}>
-						<Link className={styles.btn}>
-							<input type="button" value="立即阅读"  /> 
+						<Link className={styles.btn_red}>
+							立即阅读
 						</Link>
-						<Link className={styles.btn}>
-							<input type="button" value="放入书架"  />
+						<Link className={styles.btn_white}>
+							放入书架
 						</Link>
 					</div>
 				</section>

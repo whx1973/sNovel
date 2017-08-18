@@ -1,0 +1,30 @@
+.read_opt_more {
+    background: #ed6460;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    font-size: 12px;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.read_opt_more_active {
+	composes:read_opt_more;
+    visibility: visible;
+    opacity: 1;
+}
+.read_opt_more_unactive {
+	composes:read_opt_more;
+    visibility:hidden; 
+    opacity: 1;
+}
+.read_opt_more_li {
+    font-size: 12px;
+    height: 1.5em;
+    padding: .5em 1em;
+}
+.read_opt_more_a {
+	color:#fff;
+	text-decoration: none;
+}

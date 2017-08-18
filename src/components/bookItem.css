@@ -35,6 +35,8 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size:14px;
+    font-weight: bolder;
 }
 .book_desc_0 {
     line-height: 1.1875rem;

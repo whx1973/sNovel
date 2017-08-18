@@ -6,6 +6,7 @@ GetData.defaultProps  = {
 
 }
 export default function GetData(WrappedComponent,dataSourceKey) {
+	let isFirst = false;
 	return class EnhancedComponent extends Component {
 		constructor(props) {
 			super(props);  
@@ -20,6 +21,7 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		} 
 		registerEvent () { 
 			let eventList = GetData.defaultProps.monitorEvent;   
+			isFirst = false;
 			for(let i = 0; i < eventList.length; i++){
 				window.addEventListener(eventList[i], this.state.eventFun, false);
 			}    
@@ -70,27 +72,32 @@ export default function GetData(WrappedComponent,dataSourceKey) {
 		getScrollHeight() {  
 		    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight); 
 		} 
-		testMeet(){  
+		testMeet(){   
 			if(this.getScrollTop()==0){
 				 return 'top'
 			}
-			if(this.getScrollTop()+this.getClientHeight()==this.getScrollHeight())
+			if(this.getScrollTop()+this.getClientHeight()>=this.getScrollHeight())
 			{
 				 return 'bottom';
 			} 
 		}  
 		 
 		getDataLoad(WrappedComponent){
-			var self = this;    
-			return function(){  
-				var result = self.testMeet();  
-				if (result=='top'&&WrappedComponent.getPrevPage) { 
-					console.log('a')
-					//WrappedComponent.getPrevPage();
-				}else if(result == 'bottom'&&WrappedComponent.getNextPage){  
-					WrappedComponent.getNextPage();
-				} 
-				self.clearEvent();
+			var self = this;     
+			return function(event){ 
+				if(isFirst){
+					var result = self.testMeet(); 
+					 
+					if (result=='top'&&WrappedComponent.getPrevPage) {  
+					    //WrappedComponent.getPrevPage();
+					}else if(result == 'bottom'&&WrappedComponent.getNextPage){  
+						WrappedComponent.getNextPage();
+					} 
+					self.clearEvent(); 
+				}else{
+					isFirst = true;
+				}  
+				
 				 
 			}
 			
