@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link,hashHistory } from 'react-router';
+import { Link } from 'react-router';
 import * as chapterActions from './ChapterListRedux';
 import CatalogList from '../Components/BookChapter/CatalogList'; 
 import GetData from '../components/GetData';
@@ -15,13 +15,8 @@ export class CatalogComponent extends Component {
         this.getPrevPage = this.getPrevPage.bind(this);  
         this.getNextPage = this.getNextPage.bind(this);
         this.prevPage = this.prevPage.bind(this);
-        this.nextPage = this.nextPage.bind(this);
-        this.onBack = this.onBack.bind(this);
-    }
-    onBack(){
-        const bookId = this.props.params.bid;
-        hashHistory.push(`/book/${bookId}`);
-    }
+        this.nextPage = this.nextPage.bind(this); 
+    } 
     componentDidMount() {
         const bookId = this.props.params.bid; 
         const pageSize = 100;
@@ -66,7 +61,7 @@ export class CatalogComponent extends Component {
         if (loaded) {
             return (
                 <div>
-                    <SubHeader title ='目录' onBack = {this.onBack}> 
+                    <SubHeader title ='目录'> 
                         <Link className={styles.a_reset} to={"/"}>首页</Link>
                     </SubHeader>
                     <CatalogList bookId = { this.props.params.bid } { ...this.props.chapterList }  />

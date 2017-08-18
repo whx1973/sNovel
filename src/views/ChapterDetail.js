@@ -12,18 +12,13 @@ export class ChapterDetailComponent extends Component {
 	constructor(props) {
 	  super(props);
 	  this.getPrevPage = this.getPrevPage.bind(this);  
-	  this.getNextPage = this.getNextPage.bind(this);
-	  this.onBack = this.onBack.bind(this);
+	  this.getNextPage = this.getNextPage.bind(this); 
 	  this.state = {optShow:false} //顶部操作区域与底部区域默认不显示
 	  this.handlerToggle = this.handlerToggle.bind(this);
 	}
 	handlerToggle(){
 		this.setState({optShow:!this.state.optShow});
-	}
-	onBack(event){ 
-		window.history.back();
-		//event.stopPropagation();
-	}
+	} 
 	getPrevPage(){ 
 		const bookId = this.props.params.bid; 
 		const {prevChapter,nextChapter} = this.props.chapterDetail.data;
@@ -60,7 +55,7 @@ export class ChapterDetailComponent extends Component {
 		if(loaded){
 			return (
 				<div>
-					<ChapterHeader optShow={this.state.optShow} bookId={this.props.chapterDetail.data.bookId} title ={this.props.chapterDetail.data.bookName} onBack = {this.onBack} />
+					<ChapterHeader optShow={this.state.optShow} bookId={this.props.chapterDetail.data.bookId} title ={this.props.chapterDetail.data.bookName} />
 					<div onClick = {this.handlerToggle}>
 						<ChapterArticle {...this.props.chapterDetail.data} />
 					</div>

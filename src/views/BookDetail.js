@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { hashHistory,Link } from 'react-router'; 
+import { Link } from 'react-router'; 
 import * as actions  from './BookRedux';
 import * as chapterActions from './ChapterListRedux';
 import BookInfo from '../components/Book/BookInfo';
@@ -13,16 +13,11 @@ import styles from '../layouts/base.css'
 
 export class BooKDetailComponent extends Component { 
 	constructor(props) {
-	  super(props);  
-	  this.onBack = this.onBack.bind(this);
+	  super(props);   
 	}
 	componentDidMount() { 
 		this.props.getData();  
-	}
-	onBack(){
-		window.history.back();
-	}
-	 
+	}  
 	render() { 
 		const {isFetching, loaded, chapterList } = this.props;
 		const bookId = this.props.params.id; 
@@ -41,7 +36,7 @@ export class BooKDetailComponent extends Component {
 			}
 			return (
 				<div>
-					<SubHeader title ='书籍详情' onBack = {this.onBack}> 
+					<SubHeader title ='书籍详情' > 
 						<Link className={styles.a_reset} to={"/"}>首页</Link>
 					</SubHeader>
 					<BookInfo {...this.props.bookDetail} bookId = {bookId}/>

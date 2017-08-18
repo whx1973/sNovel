@@ -21,7 +21,7 @@ export default class ChpaterHeader extends React.Component {
 		if(optShow){
 			return ( 
 				<div className = {styles.topfixed}>
-					<SubHeader title ={this.props.title} onBack = {this.props.onBack}>
+					<SubHeader title ={this.props.title}>
 						<span className={styles.link} onClick = {this.handlerClick}>更多</span> 
 					</SubHeader>
 					<SiderBar isShow = {this.state.showMoreOpt} bookId = {this.props.bookId}/>

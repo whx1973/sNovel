@@ -18,7 +18,7 @@ class PCategory extends Component {
 			childs.push(' ') 
  		})
  		 
- 		return childs
+ 		return childs;
 	}
 	render (){ 
 		return (

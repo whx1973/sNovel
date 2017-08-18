@@ -4,8 +4,7 @@ import styles from './catalog.css';
 
 const CatalogList = (props) => {
 	const { data, bookId, count } = props;
-	const list = data;
-	console.log(props)
+	const list = data; 
 	return (
 		<section className={styles.book_directory}>
 			<div className={styles.catalist} >

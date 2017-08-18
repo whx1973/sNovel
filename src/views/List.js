@@ -10,19 +10,14 @@ class ListCon extends Component {
 	constructor(props) {
 		super(props); 
 		this.getPrevPage = this.getPrevPage.bind(this);
-		this.getNextPage = this.getNextPage.bind(this); 
-		this.onBack = this.onBack.bind(this);
+		this.getNextPage = this.getNextPage.bind(this);  
 	}
 	componentDidMount() {   
 		let { cid, pageId} = this.props.params;  
 		const pageSize = 10; 
 		pageId = pageId || 1;
 		this.props.getList(cid, pageId, pageSize); 
-	}
-	onBack(){
-		hashHistory.push('/category')
-	}
- 	 
+	}  
 	getPrevPage(){
 		let { cid, pageId} = this.props.params;  
 		const pageSize = 10; 
@@ -60,7 +55,7 @@ class ListCon extends Component {
 		if(loaded){
 			return (
 				<div>
-					<SubHeader title = {this.props.list.categoryName} onBack = {this.onBack}>
+					<SubHeader title = {this.props.list.categoryName} >
 						<Link className={styles.a_reset} to={"/"}>首页</Link>
 					</SubHeader>
 					<ListComponent ref={(control) => {this.listDom = control;}} data={this.props.list.data}/>
