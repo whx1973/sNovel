@@ -5,7 +5,7 @@ import styles from './chapterDetail.css'
 
 const ChapterArticle = (props) => {
 	return (
-		<article id="article" className ={styles.article}>
+		<article className ={styles.article}>
 			<h1  className ={styles.article_title}>{props.chaptername}</h1>
 			<div  className ={styles.article_content} dangerouslySetInnerHTML={{__html: props.detail}}>
 			</div>

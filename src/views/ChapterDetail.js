@@ -37,8 +37,9 @@ export class ChapterDetailComponent extends Component {
 		}
 		
 	}
-	componentDidMount() {   
-		this.props.getChapterDetail(this.props.params.bid,this.props.params.cid); 
+	componentDidMount() { 
+		console.log(this);   
+		this.props.getChapterDetail(this.props.params.bid,this.props.params.cid);  
 	} 
 	componentDidUpdate(){
 		const { cid } = this.props.params;
@@ -56,10 +57,10 @@ export class ChapterDetailComponent extends Component {
 			return (
 				<div>
 					<ChapterHeader optShow={this.state.optShow} bookId={this.props.chapterDetail.data.bookId} title ={this.props.chapterDetail.data.bookName} />
-					<div onClick = {this.handlerToggle}>
-						<ChapterArticle {...this.props.chapterDetail.data} />
+					<div id ="article" onClick = {this.handlerToggle}>
+						<ChapterArticle  {...this.props.chapterDetail.data}/>
 					</div>
-					<ChapterFooter optShow={this.state.optShow}/>
+					<ChapterFooter optEle="article"  optShow={this.state.optShow}/>
 				</div>
 			) 
 		}else{

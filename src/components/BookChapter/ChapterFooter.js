@@ -5,23 +5,24 @@ class SettingBox extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setbgColorAndfgColor = this.setbgColorAndfgColor.bind(this);
-		this.setFont = this.setFont.bind(this);
+		this.setFont = this.setFont.bind(this); 
 	}
-	setbgColorAndfgColor(bgColor,fgColor){
-		document.bgColor = bgColor;
-		document.fgColor = fgColor;
+	setbgColorAndfgColor(bgColor,fgColor) { 
+		var dom = document.querySelector("#"+this.props.optEle);
+		dom.style.background  = bgColor;
+		dom.style.color  = fgColor;
 	}
 	setFont(){
-		document.body.style = `font-size:${this.input.value}em`; 
-	}
-
+		var dom = document.querySelector("#"+this.props.optEle);
+		dom.style.fontSize = `${this.input.value}em`; 
+	} 
 	render(){
-		const isShow = this.props.isShow;
+		const isShow = this.props.isShow; 
 		if(isShow){
 			return (
 				<div className={styles.setting_box}>
 					<div className={styles.setting_box}>
-						<input ref={(input)=>{this.input =input }} defaultValue="1" type="range" min="1" max="3" step="0.25" onChange={this.setFont}/>
+						<input ref={(input)=>{this.input = input }} defaultValue="1" type="range" min="1" max="3" step="0.25" onChange={this.setFont}/>
 					</div> 
 					<div className={styles.readSetSkin}>
 						<div className={styles.normal} onClick = {this.setbgColorAndfgColor.bind(this,'#fff','#000')}>
@@ -51,7 +52,7 @@ export default class ChapterFooter extends React.Component {
 		super(props);
 		this.handlerSettingBox = this.handlerSettingBox.bind(this); 
 		this.handlerDark = this.handlerDark.bind(this);
-		this.state = {showSettingBox:false,darkMode:false}
+		this.state = {showSettingBox:false,darkMode:false};
 	}
 	componentWillReceiveProps(nextProps) {
 		const {optShow} = nextProps;
@@ -63,20 +64,21 @@ export default class ChapterFooter extends React.Component {
 	handlerDark(){
 		this.setState({darkMode:!this.state.darkMode});
 		this.dark.innerText = this.state.darkMode?"夜间":"日间";
+		var dom = document.querySelector("#"+this.props.optEle); 
 		if(!this.state.darkMode){
-			document.bgColor = '#000';
-			document.fgColor = '#fff';
+			dom.style.background = '#000';
+			dom.style.color = '#fff';
 		}else{
-			document.bgColor = '#fff';
-			document.fgColor = '#000';
+			dom.style.background = '#fff';
+			dom.style.color = '#000';
 		}
 	}
 	render() {
-		const optShow = this.props.optShow;
+		const optShow = this.props.optShow; 
 		if(optShow){
 			return (
 				<div className={styles.bottomfixed}> 
-					<SettingBox isShow = {this.state.showSettingBox}/>
+					<SettingBox isShow = {this.state.showSettingBox} optEle = {this.props.optEle}/>
 					<footer className={styles.footer}>
 						<div className={styles.footer_item}><a>目录</a></div>
 						<div className={styles.footer_item}><a onClick = {this.handlerSettingBox}>设置</a></div>
